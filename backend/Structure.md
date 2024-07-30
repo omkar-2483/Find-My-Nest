@@ -10,3 +10,5 @@ Model 1- Listing
 6. country
 
 # init - to initialize the database and website
+* data.js store init data
+* run index.js to initialize/re-initialize database
