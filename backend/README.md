@@ -12,3 +12,12 @@ Model 1- Listing
 # init - to initialize the database and website
 * init data is stored in data.js
 * run index.js to initialize/re-initialize database
+
+# Views - contain all templates
+* layouts have boilerplate for common includes
+* listing have all pages related to listings
+
+# Static files
+* all static files are stored in public folder 
+
+# Bootstrap used for styling

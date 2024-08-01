@@ -4,15 +4,14 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const path = require("path");
 const methodOverride = require("method-override")
+const ejsMAte = require('ejs-mate');
 
 app.use(methodOverride("_method"));
-
-//to parse data
-app.use(express.urlencoded({extended: true}))
-
-//set view engine
-app.set("view engine", "ejs");
+app.use(express.urlencoded({extended: true})) //to parse data
+app.set("view engine", "ejs");  //set view engine
 app.set("views", path.join(__dirname, "views"));
+app.engine("ejs",ejsMAte);  //set ejs engine
+app.use(express.static(path.join(__dirname,"/public")));  //serve static files
 
 //connect database
 const MONGO_URL = "mongodb://127.0.0.1:27017/findmynest";
