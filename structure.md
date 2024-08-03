@@ -1,5 +1,6 @@
-* MongoDB database- findmynest
+# Phase-I
 
+* MongoDB database- homeheavens
 # Models-store All models used in project
 Model 1- Listing
 1. title
@@ -20,8 +21,12 @@ Model 1- Listing
 # Public - Static files
 * all static files are stored in public folder 
 
+<<<<<<< HEAD
 # utils - extra files
 * extra utility files like error handler ect are stored in util folder 
 
 #Schema Validation
 * we used "joi" tool for server side schema validation in schema.js
+=======
+# Bootstrap used for styling
+>>>>>>> a354ebb874787ea8f7399652fe21ae1b7a694717
