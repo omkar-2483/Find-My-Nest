@@ -14,7 +14,7 @@ app.engine("ejs",ejsMAte);  //set ejs engine
 app.use(express.static(path.join(__dirname,"/public")));  //serve static files
 
 //connect database
-const MONGO_URL = "mongodb://127.0.0.1:27017/findmynest";
+const MONGO_URL = "mongodb://127.0.0.1:27017/homeheavens";
 
 main()
   .then(() => {
