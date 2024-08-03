@@ -17,7 +17,11 @@ Model 1- Listing
 * layouts have boilerplate for common includes
 * listing have all pages related to listings
 
-# Static files
+# Public - Static files
 * all static files are stored in public folder 
 
-# Bootstrap used for styling
+# utils - extra files
+* extra utility files like error handler ect are stored in util folder 
+
+#Schema Validation
+* we used "joi" tool for server side schema validation in schema.js
