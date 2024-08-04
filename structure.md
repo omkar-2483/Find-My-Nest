@@ -3,22 +3,22 @@
 * MongoDB database- homeheavens
 # Models-store All models used in project
 <span>
-Model 1- Listing
-1. title
-2. description
-3. image
-4. price
-5. location
-6. country
+Model 1- Listing <br/>
+1. title<br/>
+2. description<br/>
+3. image<br/>
+4. price<br/>
+5. location<br/>
+6. country<br/>
 </span>
 <span>
-Model 2- Listing
-1. title
-2. description
-3. image
-4. price
-5. location
-6. country
+Model 2- Listing<br/>
+1. title<br/>
+2. description<br/>
+3. image<br/>
+4. price<br/>
+5. location<br/>
+6. country<br/>
 </span>
 
 # init - to initialize the database and website
