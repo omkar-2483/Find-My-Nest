@@ -57,7 +57,7 @@ body {
 }
 
 /* cards styles */
-.card{
+.listing-card{
     border: none !important;
     margin-bottom: 2rem;
 }
@@ -107,3 +107,4 @@ body {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+
