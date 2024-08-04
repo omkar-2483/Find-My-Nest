@@ -2,6 +2,7 @@
 
 * MongoDB database- homeheavens
 # Models-store All models used in project
+<span>
 Model 1- Listing
 1. title
 2. description
@@ -9,6 +10,16 @@ Model 1- Listing
 4. price
 5. location
 6. country
+</span>
+<span>
+Model 2- Listing
+1. title
+2. description
+3. image
+4. price
+5. location
+6. country
+</span>
 
 # init - to initialize the database and website
 * init data is stored in data.js
@@ -26,4 +37,10 @@ Model 1- Listing
 
 #Schema Validation
 * we used "joi" tool for server side schema validation in schema.js
-# Bootstrap used for styling
+
+
+# Phase-II
+
+# 
+
+
