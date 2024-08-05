@@ -34,5 +34,7 @@
    * for client side validation, we set required in input field and applied bootstrap class 'needs-validatin', the logic of 'needs-validation' is written in "public/js/script.js" 
    * we used "joi" tool for server side schema validation in schema.js
 
+# routes 
+ * all routes are moved in respective route files
 
 
