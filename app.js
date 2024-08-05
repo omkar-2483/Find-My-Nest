@@ -5,6 +5,8 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
+const session = require("express-session");
+const flash = require("connect-flash");
 
 const listings = require('./routes/listings.js');
 const review = require('./routes/review.js');
@@ -31,10 +33,32 @@ async function main() {
   await mongoose.connect(MONGO_URL);
 }
 
+//associate session
+const sessionOptions ={
+  secret: "mysecretecode",
+  resave: false,
+  saveUninitialized: true,
+  cookie:{
+    expires: Date.now()+ 7*24*60*60*1000,  //after 7*24*60*60*1000 ms from now i.e. 7 days
+    maxAge: 7*24*60*60*1000,
+    httpOnly: true,
+  }
+};
+
 //home route
 app.get("/", (req, res) => {
   res.send("hello from backend");
 });
+
+app.use(session(sessionOptions));
+app.use(flash());
+
+//create res.local variable
+app.use((req,res,next)=>{
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+})
 
 // all listings routes
 app.use('/listings',listings);
