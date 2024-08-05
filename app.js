@@ -8,8 +8,14 @@ const ExpressError = require("./utils/ExpressError.js");
 const session = require("express-session");
 const flash = require("connect-flash");
 
-const listings = require('./routes/listings.js');
-const review = require('./routes/review.js');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const  User = require('./models/user.js');
+
+//require routes
+const listingsRouter = require('./routes/listings.js');
+const reviewRouter = require('./routes/review.js');
+const userRouter = require('./routes/user.js');
 
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true })); //to parse data
@@ -53,6 +59,15 @@ app.get("/", (req, res) => {
 app.use(session(sessionOptions));
 app.use(flash());
 
+//authentication and authorization
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+
 //create res.local variable
 app.use((req,res,next)=>{
   res.locals.success = req.flash("success");
@@ -60,11 +75,10 @@ app.use((req,res,next)=>{
   next();
 })
 
-// all listings routes
-app.use('/listings',listings);
-
-//all review routes
-app.use('/listings/:id/reviews',review);
+//routes
+app.use('/listings',listingsRouter);
+app.use('/listings/:id/reviews',reviewRouter);
+app.use('/',userRouter);
 
 //invalid page request
 app.all("*", (req, res, next) => {

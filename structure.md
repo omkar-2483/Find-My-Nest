@@ -16,6 +16,12 @@
    2. rating
    3. createdAt 
 
+   Model-3- User
+   1. email
+   2. username
+   3. password
+   we just define schema with email. username and password will be added by passport-local-mongoose
+
 # init - to initialize the database and website
    * init data is stored in data.js
    * run index.js to initialize/re-initialize database
@@ -31,10 +37,13 @@
    * extra utility files like error handler ect are stored in util folder 
 
 # Validations
-   * for client side validation, we set required in input field and applied bootstrap class 'needs-validatin', the logic of 'needs-validation' is written in "public/js/script.js" 
+   * for client side validation, we set required in input field and applied bootstrap class 'needs-validation', the logic of 'needs-validation' is written in "public/js/script.js" 
    * we used "joi" tool for server side schema validation in schema.js
 
 # routes 
- * all routes are moved in respective route files
+   * all routes are stored in respective route files
 
-
+# authentication and authorization
+   * passport: Passport is Express-compatible authentication middleware for Node.js.
+   * passport-local: Passport strategy for authenticating with a username and password.
+   * passport-local-mongoose: Passport-Local Mongoose is a Mongoose plugin that simplifies building username and password login with Passport.
