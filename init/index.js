@@ -20,6 +20,8 @@ async function main() {
 //reinitialize database
 const initDB = async () => {
   await Listing.deleteMany({});
+  let ownerId = '66b1809fadec1de40bd38fd6'; //initial owner
+  initData.data = initData.data.map((obj)=>({...obj, owner: ownerId }));
   await Listing.insertMany(initData.data); 
   //initData is object returned by data.js, 
   //out data is value of data key in that object

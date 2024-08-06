@@ -7,14 +7,20 @@
    4. price
    5. location
    6. country
+   7. reviews
+   8. owner
    
-   * Listing-Review => One to Many Relation
+   * Listing-Review => One to Many Relation, reviews refer to Review
    add one more key in listing for reviews, which store ObjectId of its all reviews.
+   * Listing-User => One to One Relation, owner refers to User 
 
    * Model 2- Review
    1. comment 
    2. rating
    3. createdAt 
+   4. author
+   * Review-User => One to One Relation, author refers to User 
+
 
    Model-3- User
    1. email

@@ -2,21 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Listing = require("../models/listing.js");
 const wrapAsync = require("../utils/wrapAsync.js");
-const ExpressError = require("../utils/ExpressError.js");
-const { listingSchema } = require("../schema.js");
-const {isLoggedIn} = require("../middleware.js");
-
-// listing validation
-const valiadteListing = (req, res, next) => {
-  let { error } = listingSchema.validate(req.body);
-  // console.log(result);
-  if (error) {
-    let errMsg = error.details.map((el) => el.message).join(",");
-    throw new ExpressError(400, errMsg);
-  } else {
-    next();
-  }
-};
+const { isLoggedIn, isOwner, valiadteListing } = require("../middleware.js");
 
 //index route
 router.get(
@@ -39,7 +25,8 @@ router.post(
   wrapAsync(async (req, res, next) => {
     let listing = req.body.listing;
     let newListing = new Listing(listing);
-    let { _id }=await newListing.save();
+    newListing.owner = req.user._id;
+    let { _id } = await newListing.save();
     req.flash("success", "New Listing Saved"); //create flash for temporory message
     res.redirect(`/listings/${_id}`);
   })
@@ -49,6 +36,7 @@ router.post(
 router.get(
   "/:id/edit",
   isLoggedIn,
+  isOwner,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let listing = await Listing.findById(id);
@@ -63,6 +51,7 @@ router.get(
 router.put(
   "/:id",
   isLoggedIn,
+  isOwner,
   valiadteListing,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
@@ -76,6 +65,7 @@ router.put(
 router.delete(
   "/:id",
   isLoggedIn,
+  isOwner,
   wrapAsync(async (req, res) => {
     let { id } = req.params;
     let deletedListing = await Listing.findByIdAndDelete(id);
@@ -90,7 +80,9 @@ router.get(
   "/:id",
   wrapAsync(async (req, res) => {
     let { id } = req.params;
-    const listing = await Listing.findById(id).populate("reviews");
+    const listing = await Listing.findById(id)
+      .populate({ path: "reviews", populate: { path: "author" } })
+      .populate("owner");
     if (!listing) {
       req.flash("error", "The listing you are requesting does not exits");
       return res.redirect("/listings");

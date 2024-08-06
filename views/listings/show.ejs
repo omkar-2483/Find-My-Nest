@@ -4,7 +4,7 @@
   <h3 class="offset-2 mt-3"><%= listing.title %></h3>
   <div class="row">
     <div class="col-8 offset-2">
-      <div class="card listing-card show-card">
+      <div class="card listing-card show-card  mb-0">
         <img
           src="<%= listing.image %>"
           class="card-img-top show-img"
@@ -12,14 +12,16 @@
         />
         <div class="card-body mt-2">
           <p class="card-text">
-            <%= listing.description %> <br />
-            <b>&#x20b9; <%= listing.price.toLocaleString("en-IN") %></b><br />
-            <%= listing.location %> <br />
-            <%= listing.country %> <br />
+            <p>Owned By: <i><%= listing.owner.username %></i></p>
+            <p><%= listing.description %> </p>
+            <p><b>&#x20b9; <%= listing.price.toLocaleString("en-IN") %></b></p>
+            <p><%= listing.location %> </p>
+            <p><%= listing.country %> </p>
           </p>
         </div>
       </div>
     </div>
+    <% if(currUser){ %>
     <div class="btns">
       <a class="btn btn-dark offset-2" href="/listings/<%= listing._id %>/edit"
         >Edit</a
@@ -28,11 +30,13 @@
         <button class="btn btn-dark offset-2 add-btn">Delete</button>
       </form>
     </div>
+  <% } %>
   </div>
 
   <!-- add review -->
   <div class="col-8 offset-2">
     <hr />
+    <% if(currUser){ %>
     <h4>Leave a review</h4>
     <form
       action="/listings/<%= listing._id %>/reviews"
@@ -66,13 +70,14 @@
       <button class="btn btn-outline-dark">Submit</button>
     </form>
     <hr>
+    <% } %>
     <div>
       <p><b>All Reviews</b></p>
       <div class="row">
         <% for(review of listing.reviews){ %>
         <div class="card col-5 mb-2 ms-5 listing">
           <div class="card-body">
-            <h5 class="card-title">username</h5>
+            <p class="card-text"><i>@<%= review.author.username %></i></p>
             <p class="card-text"><%= review.comment%></p>
             <p class="card-text"><%= review.rating %> stars</p>
           </div>
