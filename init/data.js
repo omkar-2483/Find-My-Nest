@@ -348,7 +348,5 @@ const sampleListings = [
       country: "Costa Rica",
     },
   ];
-  for(listing of sampleListings){
-    listing.image=listing.image.url;
-  }
+ 
   module.exports = { data: sampleListings };

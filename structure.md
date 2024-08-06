@@ -9,6 +9,7 @@
    6. country
    7. reviews
    8. owner
+   9. geometry
    
    * Listing-Review => One to Many Relation, reviews refer to Review
    add one more key in listing for reviews, which store ObjectId of its all reviews.
@@ -54,4 +55,14 @@
    * passport-local: Passport strategy for authenticating with a username and password.
    * passport-local-mongoose: Passport-Local Mongoose is a Mongoose plugin that simplifies building username and password login with Passport.
 
-phase-III in different folder
+# Controller
+   * callback functions used for routes are defined in controller
+
+# phase-III
+   * implemented MVC model
+   * router.route used to combine routes of common path
+   * starability module used to style rating
+   * images stored on cloudinary using multer-storage-cloudinary and cloudinary
+   * map feature using mapbox api
+   * geocoding for getting coordinates of location
+   * coordinates are stored in database using GeoJSON 

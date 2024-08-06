@@ -3,9 +3,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  }
+}
 
-.container{
+.container {
     flex: 1;
 }
 
@@ -20,33 +20,37 @@ body {
     font-size: 2rem;
 }
 
-.navbar-nav .nav-link{
-    color: #430808 ;
+.navbar-nav .nav-link {
+    color: #430808;
     font-size: 18px;
 }
 
 /* Footer styles */
-.f-info-links a{
+.f-info-links a {
     text-decoration: none;
     color: #222222;
     margin-right: 1rem;
 }
 
-.f-info-links a:hover{
+.f-info-links a:hover {
     text-decoration: underline;
 }
 
-.f-info-links, .f-info-social, .f-info-brand{
+.f-info-links,
+.f-info-social,
+.f-info-brand {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.f-info-social i{
+
+.f-info-social i {
     font-size: 1.3rem;
     margin-right: 1rem;
 }
-.f-info{
+
+.f-info {
     height: 8rem;
     background-color: #ededed;
     display: flex;
@@ -57,17 +61,18 @@ body {
 }
 
 /* cards styles */
-.listing-card{
+.listing-card {
     border: none !important;
     margin-bottom: 2rem;
 }
 
-.card-img-top{
+.card-img-top {
     border-radius: 1rem !important;
     width: 100%;
     object-fit: cover !important;
 }
-.card-body{
+
+.card-body {
     padding: 0 !important;
 }
 
@@ -75,37 +80,58 @@ body {
     font-weight: 500 !important;
 }
 
-.listing-links{
+.listing-links {
     text-decoration: none;
 }
 
 /* Card Effect */
-.card-img-overlay{
+.card-img-overlay {
     opacity: 0;
 }
-.card-img-overlay:hover{
+
+.card-img-overlay:hover {
     opacity: 0.2;
     background-color: white;
 }
 
 /* Add Listing style */
-.add-btn{
+.add-btn {
     background-color: red !important;
     border: none !important;
 }
 
 /* Show Page Style */
-.show-img{
-    height: 30vh;
+.show-img {
+    height: 40vh;
 }
 
-.btns{
+.btns {
     display: flex;
 }
 
-.show-card{
+.show-card {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
 
 
+/* map */
+#map {
+    height: 400px;
+    width: 60vw;
+}
+
+/* all forms */
+.form{
+    padding: 2rem;
+    border: 3px solid rgba(2, 15, 87, 0.491);
+    border-radius: 14px;
+}
+
+/* edit form */
+.edit-img{
+    display: flex;
+    align-items: center;
+    gap: 10%;
+    margin-left: 14px;
+}
