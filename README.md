@@ -1,3 +1,22 @@
+# HomeHeavens
+HomeHeavens is a web application designed to manage and showcase property listings. It leverages MongoDB, Express, Node.js, and various other technologies to provide a seamless user experience for property owners and potential buyers. The application follows the MVC architecture and includes robust authentication, image storage, map features, and validation mechanisms.
+
+# UI
+* home page
+![alt text](readme_img/image.png)
+![alt text](readme_img/image-6.png)
+
+* register your home
+![alt text](readme_img/image-1.png)
+![alt text](readme_img/image-2.png)
+![alt text](readme_img/image-3.png)
+![alt text](readme_img/image-4.png)
+![alt text](readme_img/image-5.png)
+
+* authentication and authorization- only owner can edit/ delete listing
+![alt text](readme_img/image-7.png)
+![alt text](readme_img/image-8.png)
+
 * MongoDB database- homeheavens
 # Models-store All models used in project
    * Model 1- Listing 
