@@ -22,6 +22,8 @@ const  User = require('./models/user.js');
 const listingsRouter = require('./routes/listings.js');
 const reviewRouter = require('./routes/review.js');
 const userRouter = require('./routes/user.js');
+const wrapAsync = require('./utils/wrapAsync.js');
+const searchController = require('./controllers/search.js');
 
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true })); //to parse data
@@ -86,6 +88,8 @@ app.use((req,res,next)=>{
 app.use('/listings',listingsRouter);
 app.use('/listings/:id/reviews',reviewRouter);
 app.use('/',userRouter);
+//search route
+app.get('/search',wrapAsync(searchController.search));
 
 //invalid page request
 app.all("*", (req, res, next) => {
